@@ -1,0 +1,254 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Bare & Beyond Aesthetics — doctor-led medical aesthetic clinic design system.
+ * Clinical, minimal, premium. Charcoal + white + soft grey with bronze accent.
+ *   Ink        #111418  Charcoal (primary UI + text)
+ *   Foreground #1B1F24  Body text
+ *   Muted      #5C6470  Soft grey body
+ *   Ivory      #F6F5F2  Warm off-white surface (used sparingly)
+ *   Surface    #F4F5F7  Cool clinical surface
+ *   Border     #E5E7EB
+ *   Accent     #B08247  Bronze (used ONLY as accent)
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Manrope", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Manrope", "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+
+  --color-gold: var(--gold);
+  --color-gold-soft: var(--gold-soft);
+  --color-ivory: var(--ivory);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 0.5rem;
+
+  /* Brand */
+  --gold: oklch(0.62 0.08 60);            /* #B08247 bronze accent */
+  --gold-soft: oklch(0.78 0.07 75);       /* soft bronze */
+  --ivory: oklch(0.975 0.005 80);         /* warm off-white, sparingly */
+  --surface: oklch(0.972 0.003 250);      /* cool clinical grey */
+  --ink: oklch(0.20 0.008 260);           /* #111418 charcoal */
+
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.22 0.008 260);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.22 0.008 260);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.22 0.008 260);
+
+  /* Primary is now charcoal (medical, confident). Bronze is accent only. */
+  --primary: oklch(0.20 0.008 260);
+  --primary-foreground: oklch(0.99 0 0);
+  --secondary: oklch(0.972 0.003 250);
+  --secondary-foreground: oklch(0.22 0.008 260);
+  --muted: oklch(0.972 0.003 250);
+  --muted-foreground: oklch(0.48 0.010 260);
+  --accent: oklch(0.62 0.08 60);
+  --accent-foreground: oklch(0.99 0 0);
+  --destructive: oklch(0.55 0.19 27);
+  --destructive-foreground: oklch(0.985 0 0);
+  --success: oklch(0.65 0.15 145);
+  --border: oklch(0.92 0.003 260);
+  --input: oklch(0.92 0.003 260);
+  --ring: oklch(0.62 0.08 60);
+
+  --chart-1: oklch(0.20 0.008 260);
+  --chart-2: oklch(0.62 0.08 60);
+  --chart-3: oklch(0.48 0.010 260);
+  --chart-4: oklch(0.972 0.003 250);
+  --chart-5: oklch(0.78 0.07 75);
+  --sidebar: oklch(0.985 0.003 260);
+  --sidebar-foreground: oklch(0.22 0.008 260);
+  --sidebar-primary: oklch(0.20 0.008 260);
+  --sidebar-primary-foreground: oklch(0.99 0 0);
+  --sidebar-accent: oklch(0.972 0.003 250);
+  --sidebar-accent-foreground: oklch(0.22 0.008 260);
+  --sidebar-border: oklch(0.92 0.003 260);
+  --sidebar-ring: oklch(0.62 0.08 60);
+}
+
+/* Dark mode tokens — used by the admin panel theme toggle. */
+.dark {
+  --gold: oklch(0.72 0.08 70);
+  --gold-soft: oklch(0.80 0.07 78);
+  --ivory: oklch(0.24 0.006 260);
+  --surface: oklch(0.24 0.006 260);
+  --ink: oklch(0.97 0.002 260);
+
+  --background: oklch(0.17 0.006 260);
+  --foreground: oklch(0.96 0.002 260);
+  --card: oklch(0.21 0.006 260);
+  --card-foreground: oklch(0.96 0.002 260);
+  --popover: oklch(0.21 0.006 260);
+  --popover-foreground: oklch(0.96 0.002 260);
+
+  --primary: oklch(0.96 0.002 260);
+  --primary-foreground: oklch(0.19 0.006 260);
+  --secondary: oklch(0.26 0.006 260);
+  --secondary-foreground: oklch(0.96 0.002 260);
+  --muted: oklch(0.25 0.006 260);
+  --muted-foreground: oklch(0.72 0.008 260);
+  --accent: oklch(0.72 0.08 70);
+  --accent-foreground: oklch(0.19 0.006 260);
+  --destructive: oklch(0.62 0.19 27);
+  --destructive-foreground: oklch(0.99 0 0);
+  --success: oklch(0.68 0.15 145);
+  --border: oklch(0.30 0.006 260);
+  --input: oklch(0.30 0.006 260);
+  --ring: oklch(0.72 0.08 70);
+
+  --sidebar: oklch(0.21 0.006 260);
+  --sidebar-foreground: oklch(0.96 0.002 260);
+  --sidebar-primary: oklch(0.96 0.002 260);
+  --sidebar-primary-foreground: oklch(0.19 0.006 260);
+  --sidebar-accent: oklch(0.26 0.006 260);
+  --sidebar-accent-foreground: oklch(0.96 0.002 260);
+  --sidebar-border: oklch(0.30 0.006 260);
+  --sidebar-ring: oklch(0.72 0.08 70);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11", "ss01";
+    line-height: 1.6;
+    letter-spacing: -0.005em;
+  }
+
+  /* Default headings are sans (Manrope) — medical, modern. Use `.font-serif` opt-in for accent. */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-sans);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    color: var(--color-ink);
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-surface);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: color-mix(in oklab, var(--color-ink) 40%, transparent);
+    border-radius: 999px;
+    border: 2px solid var(--color-surface);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-ink);
+  }
+  html {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-ink) var(--color-surface);
+  }
+
+  ::selection {
+    background: color-mix(in oklab, var(--color-ink) 90%, transparent);
+    color: var(--color-background);
+  }
+}
+
+@utility container-luxe {
+  width: 100%;
+  max-width: 1280px;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+  @media (min-width: 768px) {
+    padding-inline: 2.5rem;
+  }
+  @media (min-width: 1280px) {
+    padding-inline: 3rem;
+  }
+}
+
+@utility section-luxe {
+  padding-block: 64px;
+  @media (min-width: 768px) {
+    padding-block: 88px;
+  }
+  @media (min-width: 1024px) {
+    padding-block: 120px;
+  }
+}
+
+@utility text-eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+@utility hairline {
+  height: 1px;
+  background: var(--color-border);
+}
